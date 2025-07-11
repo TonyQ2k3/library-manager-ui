@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export function middleware(req: NextRequest) {
-    const token = req.cookies.get('token') || req.headers.get('authorization') || ''
+    const token = req.cookies.get('JWT-SESSION')?.value;
     const url = req.nextUrl.clone()
 
     if (!token && url.pathname.startsWith('/dashboard')) {

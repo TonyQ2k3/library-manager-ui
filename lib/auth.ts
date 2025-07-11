@@ -1,6 +1,5 @@
 'use client'
 
-import { cookies } from 'next/headers'
 import axios from './api'
 
 export async function login(username: string, password: string): Promise<boolean> {

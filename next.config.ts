@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   async rewrites() {
     let baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'; // Back-end API address
     return [
@@ -17,13 +18,7 @@ const nextConfig: NextConfig = {
         source: '/dashboard',
         destination: '/dashboard/books',
         permanent: true,
-      },
-      // Wildcard path matching
-      {
-        source: '/blog/:slug',
-        destination: '/news/:slug',
-        permanent: true,
-      },
+      }
     ]
   },
 };

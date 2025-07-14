@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const frontendURL = process.env.NEXT_PUBLIC_FRONTEND_URL;
+
 const instance = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: `${frontendURL}/api`,
 })
 
 instance.interceptors.request.use(config => {

@@ -2,9 +2,12 @@ name: Front-end CI
 
 on:
   push:
-    branches: [ "main", "dev", "feature/**" ]
+    branches: [ "feature/**" ]
+    paths: ["**.js", "**.jsx", "**.ts", "**.tsx", "**.json", "**.svg", "**.css", "**.scss"]
   pull_request:
+    types: [opened, reopened]
     branches: [ "main", "dev" ]
+    paths: ["**.js", "**.jsx", "**.ts", "**.tsx", "**.json", "**.svg", "**.css", "**.scss"]
   workflow_dispatch:
 
 env:
@@ -12,8 +15,7 @@ env:
   NEXT_PUBLIC_API_URL:  ${{ vars.PUBLIC_API_URL }}
 
 jobs:
-  build:
-
+  Build:
     runs-on: ubuntu-latest
     strategy:
       matrix:

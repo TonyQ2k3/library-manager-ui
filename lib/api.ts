@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const frontendURL = process.env.NEXT_PUBLIC_FRONTEND_URL;
+const frontendURL = process.env.NEXT_PUBLIC_FRONTEND_URL || "http://example.com";
 
 const instance = axios.create({
   baseURL: `${frontendURL}/api`,

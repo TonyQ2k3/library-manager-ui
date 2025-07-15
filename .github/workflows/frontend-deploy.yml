@@ -1,4 +1,4 @@
-name: Front-end CI
+name: Deployment Workflow
 
 on:
   workflow_dispatch:

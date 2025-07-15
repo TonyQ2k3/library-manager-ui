@@ -1,4 +1,4 @@
-name: Deploy to Test environment
+name: Front-end CI (Merged)
 
 on:
   push:
@@ -21,6 +21,10 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x, 21.x]
+    environment: TEST
+    env:
+      NEXT_PUBLIC_FRONTEND_URL: ${{ vars.PUBLIC_FRONTEND_URL }}
+      NEXT_PUBLIC_API_URL:  ${{ vars.PUBLIC_API_URL }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -37,11 +41,11 @@ jobs:
   Package:
     needs: Build
     if: ${{ success() }}
+    runs-on: ubuntu-latest
     environment: TEST
     env:
       NEXT_PUBLIC_FRONTEND_URL: ${{ vars.PUBLIC_FRONTEND_URL }}
       NEXT_PUBLIC_API_URL:  ${{ vars.PUBLIC_API_URL }}
-    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v4

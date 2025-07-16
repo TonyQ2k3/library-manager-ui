@@ -19,12 +19,12 @@ on:
       release_name:
         description: 'Release name for Helm deployment'
         required: false
-        default: 'library-manager'
+        default: 'libba'
         type: string
       chart_version:
         description: 'Chart version for Helm deployment'
         required: false
-        default: '1.0.0'
+        default: '2.0.0'
         type: string
 
 
@@ -39,6 +39,7 @@ env:
 
 jobs:
   Deploy:
+    environment: TEST
     runs-on: ubuntu-latest
     steps:
     - name: Deploy to ${{ github.event.inputs.environment }} environment

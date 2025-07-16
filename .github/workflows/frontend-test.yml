@@ -48,8 +48,8 @@ jobs:
       uses: actions/checkout@v4
     - name: Setup .env
       run: |
-        echo "NEXT_PUBLIC_FRONTEND_URL=${{ vars.PUBLIC_FRONTEND_URL }}" >> .env
-        echo "NEXT_PUBLIC_API_URL=${{ vars.PUBLIC_API_URL }}" >> .env
+        echo "NEXT_PUBLIC_FRONTEND_URL=${{ vars.PUBLIC_FRONTEND_URL }}" >> ./.env
+        echo "NEXT_PUBLIC_API_URL=${{ vars.PUBLIC_API_URL }}" >> ./.env
         cat .env
         ls -a
     - name: Login to Docker Hub

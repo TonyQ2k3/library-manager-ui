@@ -40,9 +40,6 @@ env:
 jobs:
   Deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x, 21.x]
     steps:
     - name: Deploy to ${{ github.event.inputs.environment }} environment
       uses: wahyd4/kubectl-helm-action@master

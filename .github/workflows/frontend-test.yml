@@ -66,4 +66,7 @@ jobs:
       with:
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+        build-args: |
+          NEXT_PUBLIC_FRONTEND_URL=${{ vars.PUBLIC_FRONTEND_URL }}
+          NEXT_PUBLIC_API_URL=${{ vars.PUBLIC_API_URL }}
 
